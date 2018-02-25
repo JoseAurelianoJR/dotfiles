@@ -36,6 +36,12 @@ Plug 'leafgarland/typescript-vim'
 Plug 'bdauria/angular-cli.vim'
 "Emmet Vim
 Plug 'mattn/emmet-vim'
+"NeoFormat
+Plug 'sbdchd/neoformat'
+"Vim js
+Plug 'pangloss/vim-javascript'
+"Vim JSX
+Plug 'mxw/vim-jsx'
 call plug#end()
 
 syntax on
@@ -48,6 +54,12 @@ autocmd VimEnter * if globpath('.,..','node_modules/@angular') != '' | call angu
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 let g:user_emmet_leader_key='<C-i>'
+
+" Auto-format on save
+augroup fmt
+  autocmd!
+  autocmd BufWritePre *.js,*.jsx Neoformat prettier
+augroup END
 
 " Paredit
 let g:paredit_mode = 1
