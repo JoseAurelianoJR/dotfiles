@@ -42,10 +42,21 @@ Plug 'sbdchd/neoformat'
 Plug 'pangloss/vim-javascript'
 "Vim JSX
 Plug 'mxw/vim-jsx'
+"Vim Elixir
+Plug 'elixir-editors/vim-elixir'
+"Vim easygit
+Plug 'neoclide/vim-easygit'
+"Vim idris
+Plug 'idris-hackers/idris-vim'
 call plug#end()
 
 syntax on
 filetype plugin indent on
+
+au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
+
+"EasyGit Activation
+let g:easygit_enable_command = 1
 
 "Angular CLI load by indicator file
 autocmd VimEnter * if globpath('.,..','node_modules/@angular') != '' | call angular_cli#init() | endif
