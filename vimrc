@@ -10,8 +10,9 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fireplace'
 "Paredit
 Plug 'kovisoft/paredit'
-"Tender theme
+"Themes
 Plug 'jacoborus/tender.vim'
+Plug 'crusoexia/vim-monokai'
 "Vim Airline
 Plug 'vim-airline/vim-airline'
 "Vim airline themes
@@ -55,6 +56,9 @@ filetype plugin indent on
 
 au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
 
+" vv to generate new vertical split
+nnoremap <silent> vv <C-w>v
+
 "EasyGit Activation
 let g:easygit_enable_command = 1
 
@@ -63,7 +67,7 @@ autocmd VimEnter * if globpath('.,..','node_modules/@angular') != '' | call angu
 
 "Emmet config
 let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
+autocmd FileType html,css,erb EmmetInstall
 let g:user_emmet_leader_key='<C-i>'
 
 " Auto-format on save
@@ -91,7 +95,7 @@ if (has("termguicolors"))
 endif
 
 syntax enable
-colorscheme tender
+colorscheme monokai
 
 " Vim Airline
 set laststatus=2
